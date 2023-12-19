@@ -1,0 +1,4 @@
+from_vertex,to_vertex,sense,rise_constraint,fall_constraint
+DFF3/CK,DFF3/D,setup_rising,0.5,0.6
+DFF3/CK,DFF3/D,setup_falling,0.4,0.7
+
