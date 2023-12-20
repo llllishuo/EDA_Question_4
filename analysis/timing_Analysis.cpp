@@ -262,7 +262,7 @@ void analysis_arrival_times(const std::vector<Edge> edges, TimingAnalysis& data)
 bool search_node_to_end(std::string from_node,std::string  start_node,std::string  end_node,TimingAnalysis& data){
 
     data.node_len[from_node]++;
-    if (end_node == from_node){
+    if (end_node == from_node || data.edges.contains(from_node) == 0){
 
         return true;
     }
@@ -273,12 +273,13 @@ bool search_node_to_end(std::string from_node,std::string  start_node,std::strin
         calculate_arrival_times(it->second,data.arrival_times[it->second.from_vertex], data.arrival_times);
 
         bool is_search =  search_node_to_end(it->first,start_node,end_node,data);
-        if (is_search) {
+        if (is_search || data.node_len[from_node] < data.node_max_len[from_node]) {
             break;
         }else{
             continue;
         }
     }
+    return false;
 }
 
 void thread_for_end(TimingAnalysis& data,std::string end){
@@ -320,10 +321,7 @@ void perform_timing_analysis(TimingAnalysis& data, int thread_pool_len){
 //            pool.enqueue(thread_for_end,data,data.startpoints[j]);
             thread_for_end(data,end);
         }
-
     }
-
-
 }
 /**
  * Global Slack计算
@@ -445,4 +443,5 @@ void run(Cli cli){
         std::cout << it->first <<","<<slacks.Slack_Rise[it->first]<<","<<slacks.Slack_Fall[it->first]<< std::endl;
     }
 }
+
 

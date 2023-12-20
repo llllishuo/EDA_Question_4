@@ -31,18 +31,19 @@ make
 
 ### 运行流程
 
-1. main()
-2. timing_analysis.run()
-3. io.read()
-4. timing_analysis.perform_timing_analysis()
-   - timing_analysis.search_node_to_end()
-   - timing_analysis.calculate_arrival_times()
+1. [main](./md/main.md)
+2. [timing_analysis](./md/timing_analysis.md).run()
+3. [io](./md/io.md).read()
+4. [timing_analysis](./md/timing_analysis.md).perform_timing_analysis()
+   - [timing_analysis](./md/timing_analysis.md).search_node_to_end()
+   - [timing_analysis](./md/timing_analysis.md).calculate_arrival_times()
    - ...
-   - timing_analysis.search_node_to_end()
-   - timing_analysis.calculate_arrival_times()
-5. timing_analysis.perform_operation_global_slack()
-6. io.write_to_global_slack()
+   - [timing_analysis](./md/timing_analysis.md).search_node_to_end()
+   - [timing_analysis](./md/timing_analysis.md).calculate_arrival_times()
+5. [timing_analysis](./md/timing_analysis.md).perform_operation_global_slack()
+6. [io](./md/io.md).write_to_global_slack()
 7. over
+
 
 
 
